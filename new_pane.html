@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+	body
+	{
+		font-family:"Open Sans",sans-serif;
+	}
+	.show_div
+	{
+		display:none;
+	}
+	.show_div
+	{
+		height: 70vh;
+		background: #15797D;
+		width: 20%;
+		color: #fff;
+		padding:10px;
+	}
+	.container
+	{
+		width:95% !important;
+		margin:0 auto;
+		
+	}
+	.setting_cog
+	{
+		left:auto;
+		right:0;
+		position:absolute;
+	}
+	.show_div
+	{
+		left:auto !important;
+		right:0 !important;
+		position:absolute;
+		top:34px;
+	}
+	.animate_class
+	{
+		-webkit-animation: dude .75s 1 forwards;
+		-moz-animation: dude .75s 1 forwards;
+		-o-animation: dude .75s 1 forwards;
+		animation: dude .75s 1 forwards;
+		overflow:hidden !important;
+	}
+	 @-webkit-keyframes dude {
+	  0% {
+		width: 0;
+	  }
+	  100% {
+		width:25%;
+	  }
+}
+@-moz-keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:25%;
+  }
+}
+@-o-keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:25%;
+  }
+}
+@keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:25%;
+  }
+}
+</style>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".show_div").toggle().addClass("animate_class");
+    });
+});
+</script>
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-success setting_cog"><i class="fa fa-cog" aria-hidden="true"></i></button>
+			<div class="show_div">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+</body>
+</html>

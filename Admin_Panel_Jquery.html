@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Accordion Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css"/>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <style type="text/css">
+	
+	.container
+	{
+		width:100% !important;
+		
+		
+	}
+	body{
+		font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+		
+		
+	}
+	h1,h2,h3,h4,h5,h6
+	{
+		font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+	}
+	.right,.left
+	{
+		background: #2A3F54;
+		
+		
+	}
+	.admin_actual_content
+	{
+	}
+	.sidebar
+	{
+		height:100%;
+	}
+	.ui-widget-content
+	{
+		background:none !important;
+		border:none !important;
+	}
+	.accordion .ui-widget
+	{
+		
+	}
+	.accordion .ui-icon 
+	{
+		float:right;
+		color:#fff !important;
+	}
+	.left .ui-accordion .ui-accordion-header
+	{
+		margin:1px 0 0 0 !important;
+	}
+	.accordion
+	{
+		top:5px;
+		position:relative;
+		padding: 4px;
+	}
+	.accordion h3 span{
+		color:#fff !important;
+	}
+	.accordion .ui-state-default
+	{
+		background:none !important;
+		border:none !important;
+		border-radius: 0px !important;
+		font-size: 15px;
+		font-weight: bold;
+		color:#fff !important;
+		font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+		font-size: 13px;
+		
+		line-height: 2;
+		outline:none !important;
+	}
+	.accordion .ui-icon
+	{
+		margin-top: 0px !important;
+		color:#fff !important;
+	}
+	.accordion .ui-icon-triangle-1-e {
+    background-position: -32px 4px !important;
+	color:#fff !important;
+	top: 5px;
+	}
+	.accordion .ui-icon-triangle-1-s {
+    background-position: -65px 6px !important;
+	}
+
+	.ui-accordion .ui-accordion-header 
+	{
+		padding: .5em .5em 0.7em .7em !important;
+	}
+	.navbar
+	{
+		margin-bottom:0px !important;
+		
+	}
+	.right_menu_toggle
+	{
+		
+		position: absolute;
+		top: 52px;
+		width: 18%;
+		float: right;
+		left: auto;
+		right: 15px;
+		background: #137B7B;
+	}
+	.ui-accordion .ui-accordion-content
+	{
+		height:100% !important;
+		border-right: 5px solid #1ABB9C !important;
+	}
+	.navbar-default .navbar-nav > li > a
+	{
+		outline:none !important;
+		color:#000 !important;
+	}
+	.accordion .ui-state-active 
+	{
+    text-shadow: rgba(0,0,0,0.25) 0 -1px 0;
+	background: linear-gradient(#334556, #2C4257),#2A3F54;
+	box-shadow: rgba(0,0,0,0.25) 0 1px 0,inset rgba(255,255,255,0.16) 0 1px 0;
+    border-right: 5px solid #1ABB9C !important;
+	font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 2;
+	outline:none !important;
+	
+	}
+	.navbar-default 
+	{
+    background: #EDEDED;
+	border-bottom: 1px solid #D9DEE4;
+    border-radius: 0px !important;
+	}
+	.navbar-default .navbar-nav >.active > a  
+	{
+		color:#000 !important;
+	}
+	.sub_menu
+	{
+		padding:0px;
+	}
+	.sub_menu li
+	{
+		color:#425668;
+	}
+	.sub_menu li:after
+	{
+		
+		bottom: 0;
+		content: "";
+		left: 27px;
+		position: absolute;
+		top: 0;
+	}
+	.sub_menu li a
+	{
+		color:#fff;
+		font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+		font-weight:bold;
+		line-height: 1.971;
+		outline:none !important;
+		font-size:13px;
+		margin-bottom: 6px;
+	}
+	.accordion .fa
+	{
+		width: 26px;
+		opacity: .99;
+		display: inline-block;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		-webkit-font-smoothing: antialiased;
+		top: 2px;
+		position: relative;
+		
+	}
+	.accordion sup {
+    top: -.5em;
+    background: green;
+    padding: 2px;
+    border-radius: 2px;
+	}
+	.left-sb
+	{
+		width:240px !important;
+	}
+	.home_container .col-md-3{
+		width:20%;
+	}
+	.home_container .col-md-9{
+		width:80%;
+	}
+	.user .fa 
+	{
+		width:19px;
+		color: #73879C;
+	}
+	.user h5
+	{
+		color: #73879C;
+		margin-top:5px !important;
+	}
+	.user h3
+	{
+		color: #73879C;
+		font-size:40px;
+		margin-top:0px !important;
+	}
+	.admin_actual_content .user
+	{
+		border-right: 2px solid #ADB2B5;
+	}
+	.version_wise h4{
+		color: #73879C;
+		font-size:13px;
+	}
+	.version h3
+	{
+		color: #73879C;
+		font-size:19px !important;
+	}
+	.software_details h4{
+		color: #73879C;
+		font-size:16px !important;
+	}
+	.version
+	{
+		    border-bottom: 2px solid #E6E9ED;
+	}
+	.progress
+	{
+		margin-top:8px !important;
+	}
+	.version_wise
+	{
+		left: -14px;
+		position: relative;
+	}
+	.software_details
+	{
+		background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+		height: 370px;
+		padding: 13px;
+		border: 1px solid rgb(204, 204, 204);
+	}
+	.progress
+	{
+		border-radius:0px !important;
+	}
+	.progress-bar-success
+	{
+		background: #1ABB9C !important;
+		border: 1px solid #1ABB9C !important;
+	}
+	.admin_actual_content .row
+	{
+		margin-bottom:0px;
+	}
+	.show_div
+	{
+		height:100vh;
+		background: #2A3F54;
+		width:100%;
+		color: #fff;
+		padding:10px;
+	}
+	.setting_cog
+	{
+		left:auto;
+		right:0;
+		position:absolute;
+	}
+	.show_div_animmate
+	{
+		left:auto;
+		right:0;
+		position:absolute;
+		top:86px !important;
+		display:none;
+		height:100vh;
+		background: #2A3F54;
+	}
+	.animate_class
+	{
+		-webkit-animation: dude .75s 1 forwards;
+		-moz-animation: dude .75s 1 forwards;
+		-o-animation: dude .75s 1 forwards;
+		animation: dude .75s 1 forwards;
+		overflow:hidden !important;
+	}
+	 @-webkit-keyframes dude {
+	  0% {
+		width: 0;
+	  }
+	  100% {
+		width:20%;
+	  }
+}
+@-moz-keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:20%;
+  }
+}
+@-o-keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:20%;
+  }
+}
+@keyframes dude {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:20%;
+  }
+}
+	@media screen and (min-width:250px) and (max-width:649px)
+	{
+		.right,.left 
+		{
+			background: #2A3F54;
+			width: 100% !important;
+			height: 100% !important;
+			
+		}
+		.home_container .col-md-3
+		{
+			width:100%;
+		}
+		
+		.ui-tabs .ui-tabs-nav li
+		{
+			margin: 0px 0em 0 0 !important;
+		}
+	
+	}
+	@media screen and (min-width:650px) and (max-width:999px)
+	{
+		.right,.left 
+		{
+			background: #2A3F54;
+			width: 100% !important;
+			height: 100% !important;
+			
+		}
+		
+	
+	}
+	.mrc_nav
+	{
+		min-height: 86px !important;
+	}
+	.mrc_nav .navbar-brand
+	{
+		padding: 3px 15px !important;
+	}
+	.mrc_nav .nav > li 
+	{
+    position: relative;
+    display: block;
+    padding: 16px 8px 0px 0px !important;
+	}
+	.mrc_nav .nav > li > a
+	{
+		font-size:15px;
+		font-weight:bold;
+	}	
+	.top_menu ul
+	{
+		padding:3px;
+		height: 66px;
+	}
+	.top_menu ul li
+	{
+		list-style:none;
+		
+	}
+	.top_menu ul li a
+	{
+		color:#fff;
+		font-weight:bold;
+		font-weight: bold;
+		line-height: 1.971;
+		outline: none !important;
+		font-size: 13px;
+
+	}
+	.top_menu ul li
+	{
+		padding: .5em .5em 0.7em .7em !important;
+	}
+	.top_menu ul li i
+	{
+		color:#fff;
+	}
+	.top_menu ul li a:hover
+	{
+		text-decoration:none;
+	}
+	.main_mrc_cl
+	{
+		padding-left:0px;
+		padding-right:0px;
+	}
+	.sub_menu li a:hover
+	{
+		text-decoration:none;
+	}
+	.col-md-2,.col-md-10,.col-md-12
+	{
+		padding-left:0px !important;
+		padding-right:0px !important;
+	}
+	
+  </style>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+    <script>
+	  $( function() {
+		$( ".accordion" ).accordion({
+			collapsible:true
+		});
+	  } );
+	  $( function() {
+		$( "#accordion_right" ).accordion({
+			collapsible:true
+		});
+	  } );
+	   $( function() {
+		$( "#right_toggle_accordion" ).accordion({
+			collapsible:true,
+			active:0
+		});
+	  } );
+
+  </script>
+  <script>
+	$(document).ready(function(){
+		$(".right_icon").click(function(){
+			$(".right_menu_toggle").slideToggle();
+		});
+	});
+</script>
+ 
+  <script type="text/javascript">
+    $(window).load(function()
+    {
+        
+        var divHeight = $('.admin_actual_content').height();
+        $('.sidebar').css('min-height', divHeight+'px');
+
+    });
+    
+
+</script> 
+
+
+</head>
+<body>
+
+  
+<div class="container admin_actual_content">
+	
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default mrc_nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/logo_mrc_lodge.png"/></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+		<!--
+		<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+         
+         
+		<li><a href="#" class=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</i></a></li>
+		<li><a href="#" class="button_show setting_cog"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+		</div>
+	</div>
+  <div class="row home_container">
+    <div class="col-md-2 sidebar" style="background: #2A3F54;">
+      <div class="left">
+		<div class="top_menu">
+			<ul>
+				<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Create New Season</a></li>
+				<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Create New Fixtures</a></li>
+			</ul>
+		</div>
+		<div class="accordion">
+			  
+			  <h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Racing Upadetes</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Add New Racename</a></li>
+					<li><a href="">Add Race Deatils</a></li>
+					<li><a href="">Add New Entries</a></li>
+					<li><a href="">Add New Handicap</a></li>
+					<li><a href="">Add New Acceptance</a></li>
+					<li><a href="">Add New Decleration</a></li>
+					<li><a href="">Add New Racecard</a></li>
+					<li><a href="">Add New Race Result</a></li>
+				</ul>
+			  </div>
+			 
+				
+			  </div>
+			  <div class="top_menu">
+					<ul>
+						<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Edit Race Number</a></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Dividend Entry</a></li>
+					</ul>
+			 </div>
+			 <div class="accordion">
+			  
+			  <h3><i class="fa fa-upload" aria-hidden="true"></i>Racing File Upload</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Racing File Upload</a></li>
+					<li><a href="">Other File Upload</a></li>
+					
+				</ul>
+			  </div>
+			  <h3><i class="fa fa-pencil" aria-hidden="true"></i>New HTJO Entry</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Add New Horse</a></li>
+					<li><a href="">Add New Trainer</a></li>
+					<li><a href="">Add New Jockey</a></li>
+					<li><a href="">Add New Owner</a></li>
+					
+					
+				</ul>
+			  </div>
+			  <h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i>IVB Section</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">IVB Fixture</a></li>
+					<li><a href="">IVB Race Result</a></li>
+					<li><a href="">IVB Dividends</a></li>
+					<li><a href="">Add New Owner</a></li>
+					
+					
+				</ul>
+			  </div>
+			</div>
+			
+	  </div>
+    </div>
+    <div class="col-md-10">
+      <div class="">
+		<h3>Welcome Madras Race Club</h3>
+		
+		
+		
+		
+	  </div>
+   
+  </div>
+</div>
+<div class="show_div_animmate">
+		<div class="col-md-12">
+			
+			<div class="show_div">
+				<div class="left">
+		<div class="top_menu">
+			<ul>
+				<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Create New Season</a></li>
+				<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Create New Fixtures</a></li>
+			</ul>
+		</div>
+		<div class="accordion">
+			  
+			  <h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Racing Upadetes</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Add New Racename</a></li>
+					<li><a href="">Add Race Deatils</a></li>
+					<li><a href="">Add New Entries</a></li>
+					<li><a href="">Add New Handicap</a></li>
+					<li><a href="">Add New Acceptance</a></li>
+					<li><a href="">Add New Decleration</a></li>
+					<li><a href="">Add New Racecard</a></li>
+					<li><a href="">Add New Race Result</a></li>
+				</ul>
+			  </div>
+			 
+				
+			  </div>
+			  <div class="top_menu">
+					<ul>
+						<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Edit Race Number</a></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Dividend Entry</a></li>
+					</ul>
+			 </div>
+			 <div class="accordion">
+			  
+			  <h3><i class="fa fa-upload" aria-hidden="true"></i>Racing File Upload</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Racing File Upload</a></li>
+					<li><a href="">Other File Upload</a></li>
+					
+				</ul>
+			  </div>
+			  <h3><i class="fa fa-pencil" aria-hidden="true"></i>New HTJO Entry</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">Add New Horse</a></li>
+					<li><a href="">Add New Trainer</a></li>
+					<li><a href="">Add New Jockey</a></li>
+					<li><a href="">Add New Owner</a></li>
+					
+					
+				</ul>
+			  </div>
+			  <h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i>IVB Section</h3>
+			  <div>
+				<ul class="sub_menu">
+					<li><a href="">IVB Fixture</a></li>
+					<li><a href="">IVB Race Result</a></li>
+					<li><a href="">IVB Dividends</a></li>
+					<li><a href="">Add New Owner</a></li>
+					
+					
+				</ul>
+			  </div>
+			</div>
+			
+	  </div>
+			
+			</div>
+		</div>
+	</div>
+	<script>
+$(document).ready(function(){
+    $(".button_show").click(function(){
+        $(".show_div_animmate").toggle().addClass("animate_class");
+    });
+});
+</script>
+</div>
+</body>
+</html>
